@@ -1,11 +1,13 @@
+require 'capistrano/ext/multistage'
+require "rvm/capistrano"
+
 set :application, "heroku_twitter_bootstrap"
-set :repository,  "git@github.com:ranjan/twitter_boot_strap.git"
+set :repository, "git@github.com:ranjan/twitter_boot_strap.git"
 
 #set :keep_releases, 5
 
 # adjust if you are using RVM, remove if you are not
-#$:.unshift(File.expand_path('./lib', ENV['rvm_path']))
-require "rvm/capistrano"
+
 set :rvm_ruby_string, '1.9.3'
 set :rvm_type, :system
 #set :rvm_bin_path, '/usr/local/rvm/bin/'
@@ -23,14 +25,15 @@ set :scm_verbose, true
 
 set :stages, %w(development staging_production production)
 set :default_stage, "development"
-require 'capistrano/ext/multistage'
 
 
 after "deploy:create_symlink", :link_production_db
 
 desc "Link database.yml"
 task :link_production_db do
-  run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+  if File.exists?("#{shared_path}/config/database.yml")
+    run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+  end
 end
 
 namespace :deploy do
