@@ -60,5 +60,5 @@ end
 
 
 after "deploy:update_code", :bundle_install
-after "deploy:symlink", :rake_db_migrate
-after "deploy:symlink", :rake_asset_precompile
+after "deploy:create_symlink", :rake_db_migrate
+after "deploy:create_symlink", :rake_asset_precompile

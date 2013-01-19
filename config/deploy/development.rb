@@ -3,4 +3,5 @@ role :web, "192.34.60.3"
 role :db, "192.34.60.3", :primary => true
 set :rails_env, 'development'
 set :branch, 'master'
-set :deploy_to, "/root/development/#{application}"
+set :deploy_to, "/var/www/#{rails_env}/#{application}"
+

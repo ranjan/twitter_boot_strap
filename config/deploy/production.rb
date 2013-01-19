@@ -3,7 +3,7 @@ role :web, "192.34.60.3"
 role :db, "192.34.60.3", :primary => true
 set :rails_env, 'production'
 set :branch, 'master'
-set :deploy_to, "/root/production/#{application}"
+set :deploy_to, "/var/www/#{rails_env}/#{application}"
 
 after "deploy:create_symlink", :link_production_env
 
