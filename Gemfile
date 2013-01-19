@@ -8,6 +8,7 @@ gem 'rails', '3.2.8'
 gem 'capistrano'
 gem 'capistrano-ext'
 gem 'rvm-capistrano'
+gem "cucumber-rails"
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
