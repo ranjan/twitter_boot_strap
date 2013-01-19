@@ -27,8 +27,6 @@ set :stages, %w(development staging_production production)
 set :default_stage, "development"
 
 
-after "deploy:create_symlink", :link_production_db
-
 desc "Link database.yml"
 task :link_production_db do
   if File.exists?("#{shared_path}/config/database.yml")
@@ -58,7 +56,7 @@ task :rake_asset_precompile, :roles => :app do
   run "cd #{release_path} &&  bundle exec rake assets:precompile RAILS_ENV=#{rails_env}"
 end
 
-
 after "deploy:update_code", :bundle_install
+after "deploy:create_symlink", :link_production_db
 after "deploy:create_symlink", :rake_db_migrate
 after "deploy:create_symlink", :rake_asset_precompile

@@ -5,7 +5,7 @@
 #   gem 'sqlite3'
 development:
   adapter: mysql2
-  database: myapp
+  database: myapp_development
   username: root
   password: root
   pool: 5
