@@ -5,7 +5,17 @@ gem 'rails', '3.2.8'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'pg'
+gem 'capistrano'
+gem 'capistrano-ext'
+gem 'rvm-capistrano'
+
+# Bundle edge Rails instead:
+# gem 'rails', :git => 'git://github.com/rails/rails.git'
+
+gem 'mysql2'
+gem 'execjs'
+gem 'therubyracer'
+
 gem 'devise'
 
 # Gems used only for assets and not required
